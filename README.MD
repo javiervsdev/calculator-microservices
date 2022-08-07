@@ -13,6 +13,7 @@
         <li><a href="#common"> ➤ common</a></li>
     </ol>
     <li><a href="#funcionalidad"> ➤ Funcionalidades implementadas</a></li>
+    <li><a href="#ejemplos-llamadas"> ➤ Ejemplos de llamadas</a></li>
 </ol>
 
 <h2> 📝 Introducción</h2>
@@ -242,3 +243,81 @@ correspondientes a los operandos que se utilizarán para realizar la operación 
 la funcionalidad se devolverá una respuesta 200 con un objeto json que contiene el resultado de la operación.
 Estos parámetros de entrada son obligatorios, puesto que la ausencia de alguno de ellos o ambos generará un
 error 400 - Bad Request.
+
+<h2 id="ejemplos-llamadas">📞 Ejemplos de llamadas</h2>
+
+Al levantar los módulos de addition y subtraction se podrán realizar peticiones a dos endpoints distintos.
+En ambos módulos se puede acceder a más detalles de las operaciones, ya que está configurado swagger.
+En la siguiente url se podrán ver los detalles del API en formato JSON:
+```
+http://localhost:{puerto}/api-docs
+```
+
+Para acceder a la documentación con interfaz de usuario, donde también se podrán realizar peticiones para probar
+los endpoints, acceder a la siguiente url:
+```
+http://localhost:{puerto}/swagger-ui/index.html
+```
+
+<strong>NOTA:</strong> será necesario modificar en las urls la variable {puerto} por el valor 8080 en el caso de querer
+probar el módulo addition u 8081 en el caso de querer probar el módulo subtraction.
+
+Además, se proporciona un fichero json llamado <strong>calculator-microservices.postman_collection.json</strong> que
+contiene una colección de peticiones que se pueden importar en Postman para probar los endpoints de los módulos. Este
+fichero se encuentra en el proyecto padre.
+
+<h3>- addition</h3>
+
+La llamada al endpoint addition es la siguiente:
+```
+http://localhost:8080/api/addition?firstOperand=2&secondOperand=3
+```
+
+La respuesta a esta llamada será un 200 devolviendo el valor resultante de la suma:
+```
+{
+  "result": 5
+}
+```
+
+Un ejemplo de llamada errónea sería eliminando cualquiera de los dos parámetros o ambos:
+```
+http://localhost:8080/api/addition?firstOperand=2
+```
+
+Al realizar esta llamada u otra en la que no se informen todos los parámetros el servidor devolverá un error 400 con el
+siguiente cuerpo:
+```
+{
+  "code": 400,
+  "message": "Operands cannot be null"
+}
+```
+
+<h3>- subtraction</h3>
+
+La llamada al endpoint subtraction es la siguiente:
+```
+http://localhost:8081/api/subtraction?firstOperand=5&secondOperand=2
+```
+
+La respuesta a esta llamada será un 200 devolviendo el valor resultante de la resta:
+```
+{
+  "result": 3
+}
+```
+
+Un ejemplo de llamada errónea sería eliminando cualquiera de los dos parámetros o ambos:
+```
+http://localhost:8080/api/subtraction?firstOperand=2
+```
+
+Al realizar esta llamada u otra en la que no se informen todos los parámetros, el servidor devolverá un error 400 con el
+siguiente cuerpo:
+```
+{
+  "code": 400,
+  "message": "Operands cannot be null"
+}
+```
