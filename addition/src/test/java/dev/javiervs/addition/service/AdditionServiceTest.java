@@ -3,6 +3,7 @@ package dev.javiervs.addition.service;
 import dev.javiervs.addition.dto.AdditionRequest;
 import dev.javiervs.addition.exception.OperandException;
 import dev.javiervs.addition.service.impl.AdditionServiceImpl;
+import io.corp.calculator.TracerImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 public class AdditionServiceTest {
 
@@ -19,7 +21,7 @@ public class AdditionServiceTest {
 
     @BeforeEach
     void setUp() {
-        underTest = new AdditionServiceImpl();
+        underTest = new AdditionServiceImpl(mock(TracerImpl.class));
     }
 
     @Test
