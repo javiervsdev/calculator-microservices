@@ -3,6 +3,7 @@ package dev.javiervs.subtraction.service;
 import dev.javiervs.common.exception.OperandException;
 import dev.javiervs.subtraction.dto.SubtractionRequest;
 import dev.javiervs.subtraction.service.impl.SubtractionServiceImpl;
+import io.corp.calculator.TracerImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 public class SubtractionServiceTest {
 
@@ -19,7 +21,7 @@ public class SubtractionServiceTest {
 
     @BeforeEach
     void setUp() {
-        underTest = new SubtractionServiceImpl();
+        underTest = new SubtractionServiceImpl(mock(TracerImpl.class));
     }
 
     @Test
