@@ -11,6 +11,7 @@
     <modules>
         <module>addition</module>
         <module>subtraction</module>
+        <module>common</module>
     </modules>
     <name>calculator-microservices</name>
 
