@@ -1,4 +1,4 @@
-package dev.javiervs.addition.configuration;
+package dev.javiervs.common.configuration;
 
 import io.corp.calculator.TracerImpl;
 import org.springframework.context.annotation.Bean;

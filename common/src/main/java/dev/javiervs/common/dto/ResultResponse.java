@@ -1,4 +1,4 @@
-package dev.javiervs.addition.dto;
+package dev.javiervs.common.dto;
 
 import org.springframework.lang.NonNull;
 

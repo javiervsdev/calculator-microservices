@@ -1,12 +1,12 @@
 package dev.javiervs.addition.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.javiervs.addition.advice.ExceptionAdvice;
 import dev.javiervs.addition.dto.AdditionRequest;
-import dev.javiervs.addition.dto.ApiError;
-import dev.javiervs.addition.dto.ResultResponse;
-import dev.javiervs.addition.exception.OperandException;
 import dev.javiervs.addition.service.AdditionService;
+import dev.javiervs.common.advice.ExceptionAdvice;
+import dev.javiervs.common.dto.ApiError;
+import dev.javiervs.common.dto.ResultResponse;
+import dev.javiervs.common.exception.OperandException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

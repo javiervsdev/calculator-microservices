@@ -1,7 +1,7 @@
-package dev.javiervs.addition.advice;
+package dev.javiervs.common.advice;
 
-import dev.javiervs.addition.dto.ApiError;
-import dev.javiervs.addition.exception.OperandException;
+import dev.javiervs.common.dto.ApiError;
+import dev.javiervs.common.exception.OperandException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

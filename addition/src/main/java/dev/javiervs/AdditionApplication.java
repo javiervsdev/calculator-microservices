@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         title = "Addition API",
         version = "1.0",
         description = "Arithmetic operation addition"))
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"dev.javiervs.addition", "dev.javiervs.common"})
 public class AdditionApplication {
     public static void main(String[] args) {
         SpringApplication.run(AdditionApplication.class, args);

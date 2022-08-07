@@ -1,9 +1,9 @@
 package dev.javiervs.addition.controller;
 
 import dev.javiervs.addition.dto.AdditionRequest;
-import dev.javiervs.addition.dto.ResultResponse;
-import dev.javiervs.addition.exception.OperandException;
 import dev.javiervs.addition.service.AdditionService;
+import dev.javiervs.common.dto.ResultResponse;
+import dev.javiervs.common.exception.OperandException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

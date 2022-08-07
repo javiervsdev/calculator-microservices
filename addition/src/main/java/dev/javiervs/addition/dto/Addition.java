@@ -1,6 +1,7 @@
 package dev.javiervs.addition.dto;
 
-import dev.javiervs.addition.exception.OperandException;
+import dev.javiervs.common.dto.ArithmeticOperation;
+import dev.javiervs.common.exception.OperandException;
 import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;

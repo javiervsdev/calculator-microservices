@@ -2,8 +2,8 @@ package dev.javiervs.addition.service.impl;
 
 import dev.javiervs.addition.dto.Addition;
 import dev.javiervs.addition.dto.AdditionRequest;
-import dev.javiervs.addition.exception.OperandException;
 import dev.javiervs.addition.service.AdditionService;
+import dev.javiervs.common.exception.OperandException;
 import io.corp.calculator.TracerImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

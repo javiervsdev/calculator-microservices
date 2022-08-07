@@ -1,8 +1,8 @@
 package dev.javiervs.addition.service;
 
 import dev.javiervs.addition.dto.AdditionRequest;
-import dev.javiervs.addition.exception.OperandException;
 import dev.javiervs.addition.service.impl.AdditionServiceImpl;
+import dev.javiervs.common.exception.OperandException;
 import io.corp.calculator.TracerImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
