@@ -10,6 +10,7 @@
     <ol>
         <li><a href="#proyecto-padre"> ➤ Proyecto padre</a></li>
         <li><a href="#addition-subtraction"> ➤ addition y subtraction</a></li>
+        <li><a href="#common"> ➤ common</a></li>
     </ol>
 </ol>
 
@@ -176,5 +177,52 @@ han explicado anteriormente)</h4>
     Al añadir estos plugins con la versión 2.2.0 ya se reconocen y ejecutan. Para información más detallada acceder
     <a href="https://dzone.com/articles/why-your-junit-5-tests-are-not-running-under-maven">aquí</a></p></li>
 </ul>
+</li>
+<li>
+<h3 id="common">common</h3>
+
+Módulo que contiene las clases comunes que se utilizan en los módulos de Addition/Subtraction.
+
+<h4>Las clases java comunes se organizan en los paquetes advice, configuration, dto y exception:</h4>
+
+<ul>
+    <li>
+        <p><strong>advice:</strong> contiene la clase <strong>ExceptionAdvice</strong> donde se controla la excepción
+        personalizada OperandException</p>
+    </li>
+    <li>
+        <p><strong>configuration:</strong> contiene la clase <strong>TracerConfiguration</strong> en la cual se genera 
+        un bean con el tracer importado del jar indicado en el enunciado de la prueba</p>
+    </li>
+    <li>
+        <p><strong>dto:</strong></p>
+        <ul>
+            <li>
+                <p><strong>ApiError:</strong> clase usada como respuesta al controlar la excepción OperandException.</p>
+            </li>
+            <li>
+                <p><strong>ResultResponse:</strong> clase usada como respuesta correcta de las operaciones de suma 
+                y resta. Contiene el resultado de la operación</p>
+            </li>
+            <li>
+                <p><strong>ArithmeticOperation:</strong> interfaz que implementan las clases de Addition/Subtraction.
+                Esta interfaz está enfocada en generar el comportamiento de una operación aritmética obligando a 
+                implementar un método que devuelva el resultado de la operación correspondiente. Al utilizar una 
+                interfaz para modelar el comportamiento se aplica el principio 
+                <a href="https://en.wikipedia.org/wiki/Composition_over_inheritance">Composición sobre herencia</a></p>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p><strong>exception:</strong> contiene la excepción personalizada OperandException que se utiliza para indicar 
+        que alguno de los operandos recibidos es incorrecto</p>
+    </li>
+</ul>
+<h4>Pom:</h4>
+
+En este caso solo hay una única dependencia en el módulo, siendo esta la dependencia del jar tracer proporcionado.
+Para que esta dependencia del jar se pueda utilizar en el proyecto, se configura en el pom el plugin
+<strong>maven-install-plugin</strong> indicándole la ruta del jar dentro del proyecto. Esta ruta se encuentra en common
+en "src/main/resources/dependencies/tracer-1.0.0.jar"
 </li>
 </ol>
