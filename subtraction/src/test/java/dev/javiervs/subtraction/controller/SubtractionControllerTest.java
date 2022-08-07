@@ -1,7 +1,10 @@
 package dev.javiervs.subtraction.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.javiervs.common.advice.ExceptionAdvice;
+import dev.javiervs.common.dto.ApiError;
 import dev.javiervs.common.dto.ResultResponse;
+import dev.javiervs.common.exception.OperandException;
 import dev.javiervs.subtraction.dto.SubtractionRequest;
 import dev.javiervs.subtraction.service.SubtractionService;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +17,7 @@ import java.math.BigDecimal;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -21,6 +25,8 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
 
 @WebMvcTest(SubtractionController.class)
 public class SubtractionControllerTest {
+
+    public static final String EXPECTED_OPERANDS_EXCEPTION_MESSAGE = "Operands cannot be null";
 
     private MockMvc mockMvc;
     private ObjectMapper objectMapper;
@@ -31,7 +37,9 @@ public class SubtractionControllerTest {
     public void setUp() {
         objectMapper = new ObjectMapper();
         SubtractionController controller = new SubtractionController(subtractionService);
-        mockMvc = standaloneSetup(controller).build();
+        mockMvc = standaloneSetup(controller)
+                .setControllerAdvice(new ExceptionAdvice())
+                .build();
     }
 
     @Test
@@ -47,6 +55,24 @@ public class SubtractionControllerTest {
                                 .param("firstOperand", BigDecimal.TEN.toString())
                                 .param("secondOperand", BigDecimal.ONE.toString()))
                 .andExpect(status().isOk())
+                .andExpect(
+                        content().string(expectedResponseContent));
+    }
+
+    @Test
+    public void should_returnBadRequest_whenOneOfTheOperandsIsNull() throws Exception {
+        final ApiError apiError =
+                new ApiError(BAD_REQUEST.value(), EXPECTED_OPERANDS_EXCEPTION_MESSAGE);
+        final String expectedResponseContent =
+                objectMapper.writeValueAsString(apiError);
+
+        when(subtractionService.subtract(any(SubtractionRequest.class)))
+                .thenThrow(new OperandException(EXPECTED_OPERANDS_EXCEPTION_MESSAGE));
+
+        mockMvc.perform(
+                        get("/api/subtraction")
+                                .param("firstOperand", BigDecimal.ONE.toString()))
+                .andExpect(status().isBadRequest())
                 .andExpect(
                         content().string(expectedResponseContent));
     }
