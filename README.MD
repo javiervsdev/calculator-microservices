@@ -13,6 +13,7 @@
         <li><a href="#common"> ➤ common</a></li>
     </ol>
     <li><a href="#funcionalidad"> ➤ Funcionalidades implementadas</a></li>
+    <li><a href="#compilacion-ejecucion"> ➤ Compilación y ejecución</a></li>
     <li><a href="#ejemplos-llamadas"> ➤ Ejemplos de llamadas</a></li>
 </ol>
 
@@ -243,6 +244,27 @@ correspondientes a los operandos que se utilizarán para realizar la operación 
 la funcionalidad se devolverá una respuesta 200 con un objeto json que contiene el resultado de la operación.
 Estos parámetros de entrada son obligatorios, puesto que la ausencia de alguno de ellos o ambos generará un
 error 400 - Bad Request.
+
+<h2 id="compilacion-ejecucion">▶ Compilación y ejecución</h2>
+
+Para llevar a cabo la compilación del proyecto es necesario posicionarse en el proyecto padre y ejecutar el siguiente
+comando:
+```
+mvn clean install
+```
+Con esto se compila el proyecto, se pasan los test y se generan los ficheros .jar necesarios para ejecutarlo.
+
+Una vez realizado este paso será necesario ejecutar en los módulos addition y subtraction el siguiente comando:
+```
+mvn spring-boot:run
+```
+Esto lanzará la aplicación en el puerto correspondiente siendo para addition el puerto 8080 y para subtraction el
+puerto 8081.
+
+Si se quieren lanzar solo los tests, se ejecuta el siguiente comando:
+```
+mvn test
+```
 
 <h2 id="ejemplos-llamadas">📞 Ejemplos de llamadas</h2>
 
