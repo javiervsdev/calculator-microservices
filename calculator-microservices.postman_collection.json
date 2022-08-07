@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "f3e06253-0f23-4dd1-bbae-f1c0c5777ddd",
+		"name": "calculator-microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20462190"
+	},
+	"item": [
+		{
+			"name": "addition - OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/addition?firstOperand=1&secondOperand=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"addition"
+					],
+					"query": [
+						{
+							"key": "firstOperand",
+							"value": "1"
+						},
+						{
+							"key": "secondOperand",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addition - BAD REQUEST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/addition?firstOperand=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"addition"
+					],
+					"query": [
+						{
+							"key": "firstOperand",
+							"value": "1"
+						},
+						{
+							"key": "secondOperand",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subtraction - OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/subtraction?firstOperand=10&secondOperand=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"subtraction"
+					],
+					"query": [
+						{
+							"key": "firstOperand",
+							"value": "10"
+						},
+						{
+							"key": "secondOperand",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subtraction - BAD REQUEST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/subtraction?firstOperand=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"subtraction"
+					],
+					"query": [
+						{
+							"key": "firstOperand",
+							"value": "10"
+						},
+						{
+							"key": "secondOperand",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
