@@ -23,6 +23,11 @@
             <artifactId>tracer</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${spring.openapi.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -3,3 +3,6 @@ server:
 spring:
   application:
     name: addition
+springdoc:
+  api-docs:
+    path: /api-docs
