@@ -1,5 +1,13 @@
 <h1 align="center">🧮 calculator-microservices</h1>
 
+<h2 id="table-of-contents"> 📖 Índice</h2>
+
+<ol>
+    <li><a href="#introduccion"> ➤ Introducción</a></li>
+    <li><a href="#requisitos-tecnicos"> ➤ Requisitos técnicos</a></li>
+    <li><a href="#tecnologias"> ➤ Tecnologías</a></li> 
+</ol>
+
 <h2> 📝 Introducción</h2>
 
 API REST para realizar operaciones aritméticas a partir de unos parámetros de entrada.
@@ -20,4 +28,15 @@ Esta versión solo es capaz de realizar operaciones de suma y resta ya que es un
     <li>Plantear un manejo de excepciones (operaciones invalidas).</li>
     <li>Deberá compilar sin errores en una instalación de Maven Limpia.</li>
     <li>Uso de operandos de tipo BigDecimal.</li>
+</ul>
+
+<h2 id="tecnologias"> 💻 Tecnologías</h2>
+
+<ul>
+    <li>Java 18</li>
+    <li>Spring Boot 2.7.2</li>
+    <li>Swagger</li>
+    <li>JUnit 5</li>
+    <li>Mockito 4.5.1</li>
+    <li>Jackson 2.13.3</li>
 </ul>
