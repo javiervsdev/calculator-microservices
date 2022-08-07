@@ -2,6 +2,7 @@ package dev.javiervs.addition.controller;
 
 import dev.javiervs.addition.dto.AdditionRequest;
 import dev.javiervs.addition.dto.ResultResponse;
+import dev.javiervs.addition.service.AdditionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,9 +16,11 @@ import java.math.BigDecimal;
 @RequestMapping("api/addition")
 public class AdditionController {
 
+    private final AdditionService additionService;
+
     @GetMapping
     public ResultResponse addition(@ModelAttribute AdditionRequest request) {
-        BigDecimal result = request.firstOperand().add(request.secondOperand());
+        BigDecimal result = additionService.add(request);
         return new ResultResponse(result);
     }
 }
