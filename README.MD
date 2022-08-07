@@ -12,6 +12,7 @@
         <li><a href="#addition-subtraction"> ➤ addition y subtraction</a></li>
         <li><a href="#common"> ➤ common</a></li>
     </ol>
+    <li><a href="#funcionalidad"> ➤ Funcionalidades implementadas</a></li>
 </ol>
 
 <h2> 📝 Introducción</h2>
@@ -226,3 +227,18 @@ Para que esta dependencia del jar se pueda utilizar en el proyecto, se configura
 en "src/main/resources/dependencies/tracer-1.0.0.jar"
 </li>
 </ol>
+
+<h2 id="funcionalidad">✨ Funcionalidades implementadas</h2>
+
+Para esta prueba de concepto se han implementado las funcionalidades acordes a las operaciones aritméticas de suma y
+resta.
+
+Cada una de estas operaciones se han implementado en módulos distintos para permitir que el proyecto a medida que vaya
+creciendo con más operaciones aritméticas sea fácil de mantener y escalar.
+
+La funcionalidad de suma se encuentra en el módulo <strong>addition</strong> y la funcionalidad de resta en el módulo
+<strong>subtraction</strong>. Ambas funcionalidades necesitan recibir como parámetros de entrada dos números
+correspondientes a los operandos que se utilizarán para realizar la operación invocada. Tras la ejecución correcta de
+la funcionalidad se devolverá una respuesta 200 con un objeto json que contiene el resultado de la operación.
+Estos parámetros de entrada son obligatorios, puesto que la ausencia de alguno de ellos o ambos generará un
+error 400 - Bad Request.
