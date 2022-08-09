@@ -247,6 +247,11 @@ error 400 - Bad Request.
 
 <h2 id="compilacion-ejecucion">▶ Compilación y ejecución</h2>
 
+Primero es necesario instalar la librería tracer proporcionada. Para ello se debe ejecutar el siguiente comando:
+```
+mvn clean validate
+```
+
 Para llevar a cabo la compilación del proyecto es necesario posicionarse en el proyecto padre y ejecutar el siguiente
 comando:
 ```
