@@ -259,9 +259,17 @@ mvn clean install
 ```
 Con esto se compila el proyecto, se pasan los test y se generan los ficheros .jar necesarios para ejecutarlo.
 
-Una vez realizado este paso será necesario ejecutar en los módulos addition y subtraction el siguiente comando:
+Una vez realizado este paso será necesario realizar un <strong>cd</strong> a los directorios de los módulos de addition
+y subtraction y ejecutar en cada uno de ellos el siguiente comando:
 ```
 mvn spring-boot:run
+```
+
+Otra opción sería  ejecutar los dos siguientes comandos estando posicionado desde el directorio del proyecto padre:
+```
+mvn -pl addition spring-boot:run
+
+mvn -pl sustraction spring-boot:run
 ```
 Esto lanzará la aplicación en el puerto correspondiente siendo para addition el puerto 8080 y para subtraction el
 puerto 8081.
